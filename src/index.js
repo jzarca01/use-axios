@@ -14,16 +14,16 @@ export function useAxiosMamene(options) {
   }
 
   useEffect(() => {
-    ;async () => {
+    ;(async () => {
       dispatch({ type: 'DISPATCH_REQUEST' })
       try {
         const response = await axios(options)
-        return dispatch({ type: 'COMPLETED_REQUEST', data: response.data })
+        return dispatch({ type: 'COMPLETED_REQUEST', payload: response.data })
       } catch (err) {
         dispatch({ type: 'FAILED_REQUEST' })
       }
-    }
-  }, [options])
+    })()
+  }, [JSON.stringify(options)])
 
   return [state.data, state.loading, state.error]
 }

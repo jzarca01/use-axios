@@ -15,7 +15,7 @@ npm install --save use-axios-mamene
 ```jsx
 import React from 'react'
 
-import useAxiosMamene from 'use-axios-mamene'
+import { useAxiosMamene } from 'use-axios-mamene'
 
 const Example = () => {
   const [data, loading, error] = useAxiosMamene(options)
